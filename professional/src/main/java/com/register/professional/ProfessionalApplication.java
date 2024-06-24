@@ -1,4 +1,4 @@
-package com.register.backend;
+package com.register.professional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
