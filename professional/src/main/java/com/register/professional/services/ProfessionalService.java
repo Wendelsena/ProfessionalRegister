@@ -41,4 +41,18 @@ public class ProfessionalService {
     public Professional save(Professional professional) {
         return this.professionalRepository.save(professional);
     }
+
+    // altera o profissional pelo ID
+    public void update(int id, Professional professional) {
+        try {
+            Professional prof = professionalRepository.getReferenceById(id);
+            prof.setNome(professional.getNome());
+            prof.setArea(professional.getArea());
+            prof.setValorHora(professional.getValorHora());
+            this.professionalRepository.save(prof);
+        } catch (EntityNotFoundException e) {
+            throw new EntityNotFoundException("Profissional não cadastrado!");
+            
+        }
+    }
 }
