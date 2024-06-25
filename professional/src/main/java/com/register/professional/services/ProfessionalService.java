@@ -21,9 +21,19 @@ public class ProfessionalService {
         return professionalRepository.findAll();
     }
 
+    
     // retorta o profissional pelo ID
     public Professional getProfessionalById(int id) {
         return professionalRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Profissional não encontrado :("));
-        
+
+    }
+
+    // deleta o profissional pelo ID
+    public void deleteProfessionalById(int id) {
+        if(this.professionalRepository.existsById(id)) {
+            this.professionalRepository.deleteById(id);
+        } else {
+            throw new EntityNotFoundException("Profissional nao encontrado!");
+        }
     }
 }
