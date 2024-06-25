@@ -1,8 +1,21 @@
 package com.register.professional.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity // digo que a classe Professional agora é uma entidade relacional (Banco de Dados)
+@Table(name = "TBL_PROFESSIONAL") // define o nome da tabela
 public class Professional {
 
+    @Id // define a chave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // define um valor automatico ao id (chave primaria)
     private Integer id;
+
+    @Column(length = 40) // define o maximo de caracteres para nome
     private String nome;
     private String valorHora;
     private String area;
